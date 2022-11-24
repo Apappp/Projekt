@@ -28,7 +28,7 @@
             <input type="submit" value="Zaloguj się">
         </form>
         <div class="login-card-footer">
-            
+            Nie masz konta <a href="rejestracja.php">Utwórz konto</a>
         </div>
     </div>
     
