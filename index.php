@@ -1,3 +1,7 @@
+<?php
+    session_start();
+?>
+
 <!DOCTYPE html>
 <html lang="pl">
 <head>
@@ -19,16 +23,25 @@
         <form action="login.php" method="post" class="login-card-form">
             <div class="form-item">
                 <i class="fa-regular fa-user"></i>
-                <input type="text" name="login">
+                <input type="text" name="login" placeholder="Login">
             </div>
             <div class="form-item">
                 <i class="fa-regular fa-lock"></i>
-                <input type="password" name="password">
+                <input type="password" name="password" placeholder="Hasło">
             </div>
-            <input type="submit" value="Zaloguj się">
+            <div class="error">
+                <?php
+                    if(isset($_SESSION['error'])){
+                        echo $_SESSION['error'];
+                        unset($_SESSION['error']);
+                    }
+                        
+                ?>
+            </div>
+            <input type="submit" value="Zaloguj się" name="loginbtn">
         </form>
         <div class="login-card-footer">
-            Nie masz konta <a href="rejestracja.php">Utwórz konto</a>
+            Nie masz konta? <a href="rejestracja.php">Utwórz konto</a>
         </div>
     </div>
     
