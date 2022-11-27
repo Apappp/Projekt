@@ -32,10 +32,14 @@
             <button class="play" onclick="preGame()">Graj!</button>
         </div>
         <div class="game">
-            <div class="wpm">wpm: 60</div>
-            <div class="time">Czas: 60</div>
-            <div class="text">Randomowy tekst</div>
-            <textarea name="textInput" id="textInput" cols="30" rows="10"></textarea>
+            <div class="gameStats">
+                <div class="wpm">wpm: <span>0</span></div><div class="line"></div>
+                <div class="time">Czas: <span>0</span>s</div><div class="line"></div>
+                <div class="acc">Acc: <span>100</span>%</div>
+            </div>
+            <input type="text" class="textInput">
+            <div class="text"></div>
+            <div class="author"></div>
         </div>
         <script src="js/gra.js"></script>
     </main>
