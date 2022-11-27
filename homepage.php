@@ -20,16 +20,27 @@
             <a href="homepage.php">Typing race</a>
         </div>
         <ul class="menu">
+            <li><a href="homepage.php">Graj!</a></li>
             <li><a href="">Rankingi</a></li>
             <li><a href="logoff.php">Wyloguj</a></li>
             <li><a href="">Twój profil</a></li>
         </ul>
     </header>
     <main>
-        aprufhpawef
+        <div class="pregame">
+            <div class="info">Bądź najszybszym w pisaniu na klawiaturze!</div>
+            <button class="play" onclick="preGame()">Graj!</button>
+        </div>
+        <div class="game">
+            <div class="wpm">wpm: 60</div>
+            <div class="time">Czas: 60</div>
+            <div class="text">Randomowy tekst</div>
+            <textarea name="textInput" id="textInput" cols="30" rows="10"></textarea>
+        </div>
+        <script src="js/gra.js"></script>
     </main>
     <footer>
-        
+        <div class="podpis">Darek enterprises&copy;</div>
     </footer>
 </body>
 </html>
