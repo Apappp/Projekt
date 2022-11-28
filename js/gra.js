@@ -13,7 +13,6 @@ let mistakes = 0;
 let currentTime = 0;
 let quoteLength = 0;
 let gameEnded = false;
-let quoteId = "";
 let typedLetter = "";
 
 function preGame(){
@@ -33,7 +32,6 @@ function game(){
     tryAgainBtn.style.display = "none";
     scoreDiv.style.display = "none";
     inputText.value = "";
-    console.log(quoteId);
     getRandomQuote();
     document.addEventListener("keydown", () => {inputText.focus();});
     inputText.addEventListener("input", checkLetter);
@@ -58,7 +56,6 @@ async function getRandomQuote() {
     text.innerHTML = "";
     splitQuote(quote.content);
     author.innerHTML = quote.author;
-    quoteId = quote._id;
 }
 
 function splitQuote(quote){
@@ -72,7 +69,6 @@ function splitQuote(quote){
 }
 
 function checkLetter(){
-    console.log(currentLetter, quoteLength, gameEnded);
     if (gameEnded){
         return 0;
     }
@@ -147,10 +143,19 @@ function score(){
 const tryAgainBtn = document.querySelector('.game .tryAgain');
 
 
-function tryAgain(){
+// function tryAgain(){
     
+//     game();
+// }
+
+$('.tryAgain').on("click", function(){
+    $.ajax({
+        url: "update_score.php",
+        method: "POST",
+        data: {score: score(), wpm: Math.round(countWpm()*100)/100, acc: Math.round(accuracy()*100)/100}
+    }).done(function(res){
+        console.log(res);
+    });
     game();
-}
-
-
+})
 

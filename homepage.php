@@ -42,7 +42,7 @@
             <input type="text" class="textInput">
             <div class="text"></div>
             <div class="gamefooter">
-                <div class="tryAgain" onclick="tryAgain()">
+                <div class="tryAgain">
                     <i class="fa-solid fa-arrows-rotate"></i> Zapisz wynik i zagraj ponownie
                 </div>
                 <div class="author"></div>
