@@ -4,8 +4,10 @@ const text = document.querySelector('.game .text');
 const author = document.querySelector('.game .author');
 const inputText = document.querySelector('.textInput');
 const timer = document.querySelector('.gameStats .time span');
+const wpm = document.querySelector('.gameStats .wpm span');
 let currentLetter = 0;
 let mistakes = 0;
+let currentTime = 0;
 
 function preGame(){
     preG.style.opacity = "0";
@@ -20,6 +22,7 @@ function game(){
     document.addEventListener("keydown", () => {inputText.focus();});
     inputText.addEventListener("input", checkLetter);
     countdown();
+    const timeInterval = setInterval(()=>{wpm.innerHTML = Math.floor(countWpm())}, 3000);
 }
 
 const RANDOM_QUOTE_API_URL = 'https://api.quotable.io/random';
@@ -37,6 +40,7 @@ function splitQuote(quote){
         let line = `<span>${span}</span>`;
         text.innerHTML += line;
     });
+    text.innerHTML += "<span> </span>";
 }
 
 function checkLetter(){
@@ -61,12 +65,23 @@ function checkLetter(){
 
 }
 
+function countWpm() {
+    return (((currentLetter + 1) / 5) - mistakes) / (currentTime / 60);
+}
+
 function countdown() {
-    let start = Date.now();
-    setInterval(() => {
-        let timeLeft = Math.floor(Date.now - start);
-        timer.innerHTML = timeLeft;
-    }, 2000);
+    let timeLeft = 60;
+    const timeInterval = setInterval(() => {
+        timer.textContent = timeLeft;
+        // wpm.innerHTML = Math.floor(countWpm());
+        if (timeLeft<=0)
+            clearInterval(timeInterval);
+        else{
+            timeLeft--;
+            currentTime++;
+        }
+        console.log(currentTime, currentLetter)
+    }, 1000);
     
 }
 

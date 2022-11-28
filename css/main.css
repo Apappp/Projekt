@@ -156,9 +156,9 @@ main {
     text-decoration: underline;
 }
 
-/* .game .textInput {
+.game .textInput {
     opacity: 0;
-} */
+}
 
 footer {
     border-top: 2px solid white;
