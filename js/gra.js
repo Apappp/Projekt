@@ -5,9 +5,13 @@ const author = document.querySelector('.game .author');
 const inputText = document.querySelector('.textInput');
 const timer = document.querySelector('.gameStats .time span');
 const wpm = document.querySelector('.gameStats .wpm span');
+const acc = document.querySelector('.gameStats .acc span');
 let currentLetter = 0;
 let mistakes = 0;
 let currentTime = 0;
+let quoteLength = 0;
+let gameEnded = false;
+let quoteId = "";
 
 function preGame(){
     preG.style.opacity = "0";
@@ -18,11 +22,23 @@ function preGame(){
 }
 
 function game(){
+    gameEnded = false;
+    console.log(quoteId);
     getRandomQuote();
     document.addEventListener("keydown", () => {inputText.focus();});
     inputText.addEventListener("input", checkLetter);
     countdown();
-    const timeInterval = setInterval(()=>{wpm.innerHTML = Math.floor(countWpm())}, 3000);
+    const timeInterval = setInterval(()=>{
+        if(gameEnded == false){
+            wpm.innerHTML = Math.floor(countWpm())
+            acc.innerHTML = accuracy();
+        }
+        else {
+            clearInterval(timeInterval);
+        }
+    }, 2000);
+    if (gameEnded)
+        tryAgain();
 }
 
 const RANDOM_QUOTE_API_URL = 'https://api.quotable.io/random';
@@ -33,22 +49,33 @@ async function getRandomQuote() {
     const quote = await response.json();
     splitQuote(quote.content);
     author.innerHTML = quote.author;
+    quoteId = quote.id;
 }
 
 function splitQuote(quote){
     quote.split("").forEach(span => {
         let line = `<span>${span}</span>`;
         text.innerHTML += line;
+        quoteLength++;
     });
+    
     text.innerHTML += "<span> </span>";
 }
 
 function checkLetter(){
+    console.log(currentLetter, quoteLength, gameEnded);
+    if (gameEnded){
+        
+        return 0;
+    }
+
     const characters = text.querySelectorAll("span");
     let typedLetter = inputText.value.split("")[currentLetter];
     if(typedLetter == null){
         characters[currentLetter].classList.remove("active");
         currentLetter--;
+        if(characters[currentLetter].classList.contains("incorrect"))
+            mistakes--;
         characters[currentLetter].classList.remove("correct", "incorrect");
     }
     else {
@@ -62,26 +89,43 @@ function checkLetter(){
         currentLetter++;
     }
     characters[currentLetter].classList.add("active");
+    
+    
+    if (currentLetter == (quoteLength)){
+        gameEnded = true;
 
+    }
 }
 
 function countWpm() {
-    return (((currentLetter + 1) / 5) - mistakes) / (currentTime / 60);
+    return (((currentLetter - mistakes) / 5) / currentTime) * 60;
 }
 
 function countdown() {
     let timeLeft = 60;
     const timeInterval = setInterval(() => {
-        timer.textContent = timeLeft;
-        // wpm.innerHTML = Math.floor(countWpm());
-        if (timeLeft<=0)
+        if(gameEnded == true){
             clearInterval(timeInterval);
+            return 0;
+        }
+            
+        timer.textContent = timeLeft;
+        if (timeLeft<=0){
+            gameEnded = true;
+            clearInterval(timeInterval);
+        } 
         else{
             timeLeft--;
             currentTime++;
         }
-        console.log(currentTime, currentLetter)
     }, 1000);
+}
+
+function accuracy(){
+    return 100-(Math.round((mistakes / (quoteLength + 1)) * 10000) / 100);
+}
+
+function tryAgain(){
     
 }
 
