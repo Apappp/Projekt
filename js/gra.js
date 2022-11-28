@@ -6,12 +6,15 @@ const inputText = document.querySelector('.textInput');
 const timer = document.querySelector('.gameStats .time span');
 const wpm = document.querySelector('.gameStats .wpm span');
 const acc = document.querySelector('.gameStats .acc span');
+const scoreSpan = document.querySelector('.gameStats .score span');
+const scoreDiv = document.querySelector('.gameStats .score');
 let currentLetter = 0;
 let mistakes = 0;
 let currentTime = 0;
 let quoteLength = 0;
 let gameEnded = false;
 let quoteId = "";
+let typedLetter = "";
 
 function preGame(){
     preG.style.opacity = "0";
@@ -22,7 +25,14 @@ function preGame(){
 }
 
 function game(){
+    currentLetter = 0;
+    mistakes = 0;
+    currentTime = 0;
+    quoteLength = 0;
     gameEnded = false;
+    tryAgainBtn.style.display = "none";
+    scoreDiv.style.display = "none";
+    inputText.value = "";
     console.log(quoteId);
     getRandomQuote();
     document.addEventListener("keydown", () => {inputText.focus();});
@@ -37,8 +47,6 @@ function game(){
             clearInterval(timeInterval);
         }
     }, 2000);
-    if (gameEnded)
-        tryAgain();
 }
 
 const RANDOM_QUOTE_API_URL = 'https://api.quotable.io/random';
@@ -47,9 +55,10 @@ async function getRandomQuote() {
     const request = new Request(RANDOM_QUOTE_API_URL);
     const response = await fetch(request);
     const quote = await response.json();
+    text.innerHTML = "";
     splitQuote(quote.content);
     author.innerHTML = quote.author;
-    quoteId = quote.id;
+    quoteId = quote._id;
 }
 
 function splitQuote(quote){
@@ -65,12 +74,11 @@ function splitQuote(quote){
 function checkLetter(){
     console.log(currentLetter, quoteLength, gameEnded);
     if (gameEnded){
-        
         return 0;
     }
 
-    const characters = text.querySelectorAll("span");
-    let typedLetter = inputText.value.split("")[currentLetter];
+    let characters = text.querySelectorAll("span");
+    typedLetter = inputText.value.split("")[currentLetter];
     if(typedLetter == null){
         characters[currentLetter].classList.remove("active");
         currentLetter--;
@@ -94,6 +102,13 @@ function checkLetter(){
     if (currentLetter == (quoteLength)){
         gameEnded = true;
 
+    }
+    if (gameEnded){
+        tryAgainBtn.style.display = "block";
+        scoreDiv.style.display = "flex";
+        scoreSpan.innerHTML = score();
+
+        return 0;
     }
 }
 
@@ -125,8 +140,16 @@ function accuracy(){
     return 100-(Math.round((mistakes / (quoteLength + 1)) * 10000) / 100);
 }
 
+function score(){
+    return Math.round((accuracy()*countWpm()*100)*100) / 100;
+}
+
+const tryAgainBtn = document.querySelector('.game .tryAgain');
+
+
 function tryAgain(){
     
+    game();
 }
 
 

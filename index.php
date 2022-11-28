@@ -29,7 +29,7 @@
                 <input type="text" name="login" placeholder="Login">
             </div>
             <div class="form-item">
-                <i class="fa-regular fa-lock"></i>
+                <i class="fa-solid fa-lock"></i>
                 <input type="password" name="password" placeholder="Hasło">
             </div>
             <div class="error">

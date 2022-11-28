@@ -12,6 +12,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="css/main.css">
     <title>Document</title>
+    <script src="jquery-3.6.1.js"></script>
 </head>
 <body>
     <header>
@@ -36,10 +37,16 @@
                 <div class="wpm">wpm: <span>0</span></div><div class="line"></div>
                 <div class="time">Czas: <span>0</span>s</div><div class="line"></div>
                 <div class="acc">Acc: <span>100</span>%</div>
+                <div class="score">score: <span></span></div>
             </div>
             <input type="text" class="textInput">
             <div class="text"></div>
-            <div class="author"></div>
+            <div class="gamefooter">
+                <div class="tryAgain" onclick="tryAgain()">
+                    <i class="fa-solid fa-arrows-rotate"></i> Zapisz wynik i zagraj ponownie
+                </div>
+                <div class="author"></div>
+            </div>
         </div>
         <script src="js/gra.js"></script>
     </main>
