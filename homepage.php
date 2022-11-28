@@ -5,13 +5,13 @@
 ?>
 
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pl">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="css/main.css">
-    <title>Document</title>
+    <title>Typing rac</title>
     <script src="jquery-3.6.1.js"></script>
 </head>
 <body>
@@ -24,10 +24,10 @@
             <li><a href="homepage.php">Graj!</a></li>
             <li><a href="">Rankingi</a></li>
             <li><a href="logoff.php">Wyloguj</a></li>
-            <li><a href="">Twój profil</a></li>
+            <li><a href="profile.php">Twój profil</a></li>
         </ul>
     </header>
-    <main>
+    <main class="main">
         <div class="pregame">
             <div class="info">Bądź najszybszym w pisaniu na klawiaturze!</div>
             <button class="play" onclick="preGame()">Graj!</button>

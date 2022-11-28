@@ -13,7 +13,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="css/style.css">
     <script src="https://kit.fontawesome.com/64c0f9e8f9.js" crossorigin="anonymous"></script>
-    <title>Document</title>
+    <title>Typing race</title>
 </head>
 <body>
     <div class="login-card">

@@ -143,11 +143,6 @@ function score(){
 const tryAgainBtn = document.querySelector('.game .tryAgain');
 
 
-// function tryAgain(){
-    
-//     game();
-// }
-
 $('.tryAgain').on("click", function(){
     $.ajax({
         url: "update_score.php",
