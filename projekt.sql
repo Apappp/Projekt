@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Czas generowania: 28 Lis 2022, 23:05
+-- Czas generowania: 29 Lis 2022, 15:02
 -- Wersja serwera: 10.4.25-MariaDB
 -- Wersja PHP: 8.1.10
 
@@ -46,7 +46,8 @@ INSERT INTO `scores` (`id`, `score`, `login`, `datewhen`, `acc`, `wpm`) VALUES
 (3, '624000', 'Apapp', '0000-00-00', '100', 62),
 (4, '634285.71', 'Apapp', '0000-00-00', '100', 63),
 (5, '445876', 'Apapp', '2022-11-28', '98.7', 45),
-(6, '', 'Apapp', '2022-11-28', '', 0);
+(6, '', 'Apapp', '2022-11-28', '', 0),
+(7, '420000', 'Apapp', '2022-11-29', '100', 42);
 
 -- --------------------------------------------------------
 
@@ -60,7 +61,7 @@ CREATE TABLE `users` (
   `nickname` varchar(30) DEFAULT NULL,
   `email` varchar(30) DEFAULT NULL,
   `age` int(11) DEFAULT NULL,
-  `password` varchar(50) DEFAULT NULL
+  `password` varchar(200) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
@@ -68,7 +69,8 @@ CREATE TABLE `users` (
 --
 
 INSERT INTO `users` (`id`, `login`, `nickname`, `email`, `age`, `password`) VALUES
-(1, 'Apapp', 'Apappp', 'jacek222033@gmail.com', 19, 'bajojajo');
+(4, 'bolek', 'Lolek', 'asfjoiewajfo@apof.pl', 7, '$2y$10$tg1MUcdgHVNpHnYSqAvPhu0CUhBccqlHZ36lvNqtrvsM0gINkNn2e'),
+(5, 'Apapp', 'Apappp', 'jacek222033@gmail.com', 19, '$2y$10$0YIWsAEaD/OU1VMk6OU3Mur9v6608LPJDGsKDNcr8uPn1KIJRb7ry');
 
 --
 -- Indeksy dla zrzutów tabel
@@ -94,13 +96,13 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT dla tabeli `scores`
 --
 ALTER TABLE `scores`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
 -- AUTO_INCREMENT dla tabeli `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

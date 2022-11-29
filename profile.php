@@ -27,7 +27,7 @@
                 <?php
                     require_once('database/database_connection.php');
                     if(!isset($_SESSION['user']))
-                    header('Location: index.php');
+                        header('Location: index.php');
                     $login = $_SESSION['user'];
                     $query = "SELECT * FROM users WHERE login='$login'";
                     $result = $connection -> query($query);

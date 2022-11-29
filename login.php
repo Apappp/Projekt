@@ -40,7 +40,7 @@
         $result = $connection -> query($query);
         $cell = $result -> fetch_assoc();
 
-        if($cell['password'] == $password){
+        if(password_verify($password, $cell['password'])){
             $_SESSION['user'] = $login;
             $query = "SELECT nickname FROM users WHERE login='$login'";
             $result = $connection -> query($query);

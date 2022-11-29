@@ -21,6 +21,11 @@ body {
     min-width: 400px;
     color: white;
     border-radius: 50px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
 }
 
 .register-header {
@@ -32,6 +37,7 @@ body {
     height: 100%;
     display: flex;
     flex-direction: column;
+    justify-content: center;
     align-items: center;
     gap: 3vh;
 }
@@ -54,11 +60,15 @@ body {
     outline: none;
     height: 3vh;
     font-size: 1.1rem;
-    width: 80%;
+    width: 85%;
 }
 
 .form-item input:focus {
     border-bottom: 1.5px solid black;
+}
+
+.register-card-form .error {
+    color: red;
 }
 
 .register-card-form input[type="submit"]{
