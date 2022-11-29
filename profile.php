@@ -29,12 +29,23 @@
                     if(!isset($_SESSION['user']))
                     header('Location: index.php');
                     $login = $_SESSION['user'];
-                    echo $login;
-                    $query = "SELECT (login, nickname, email, age) FROM users WHERE login='$login'";
+                    $query = "SELECT (login, nickname, email, age) FROM users";
                     $result = $connection -> query($query);
-                    $cells = $result -> fetch_array();
-                    echo $cells[0];
+                    $cells = $result -> fetch_assoc();
+                    echo $cells['email'];
                 ?>
+                <div class="name">
+                    <span>Nickname: </span>
+                    <span>login: </span>
+                    <span>E-mail: </span>
+                    <span>Wiek: </span>
+                </div>
+                <div class="content">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
             </div>
             <div class="rest"></div>
         </div>
