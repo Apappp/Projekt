@@ -25,7 +25,15 @@ body {
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    position: relative;
+}
 
+.back {
+    position: absolute;
+    left: 2vw;
+    top: 4vh;
+    color: white;
+    padding: 10px;
 }
 
 .register-header {

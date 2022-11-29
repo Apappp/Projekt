@@ -32,6 +32,7 @@
                     $query = "SELECT * FROM users WHERE login='$login'";
                     $result = $connection -> query($query);
                     $cells = $result -> fetch_array();
+                    $connection -> close();
                 ?>
                 <div class="name">
                     <span><h2>Nickname: </h2></span>

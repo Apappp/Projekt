@@ -13,6 +13,7 @@
     <link rel="stylesheet" href="css/main.css">
     <title>Typing race</title>
     <script src="jquery-3.6.1.js"></script>
+    <script src="https://kit.fontawesome.com/64c0f9e8f9.js" crossorigin="anonymous"></script>
 </head>
 <body>
     <header>
@@ -42,8 +43,13 @@
             <input type="text" class="textInput">
             <div class="text"></div>
             <div class="gamefooter">
-                <div class="tryAgain">
-                    <i class="fa-solid fa-arrows-rotate"></i> Zapisz wynik i zagraj ponownie
+                <div class="buttons">
+                    <div class="tryAgain">
+                        <i class="fa-solid fa-arrows-rotate"></i> <span>Zagraj ponownie</span>
+                    </div>
+                    <div class="saveGame">
+                        <i class="fa-solid fa-floppy-disk"></i> Zapisz wynik.
+                    </div>
                 </div>
                 <div class="author"></div>
             </div>

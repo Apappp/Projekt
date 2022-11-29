@@ -41,7 +41,7 @@
                     $query = "SELECT users.nickname, scores.score, scores.wpm, scores.acc, scores.datewhen FROM scores INNER JOIN users ON scores.login=users.login ORDER BY scores.score DESC";
                     $result = $connection -> query($query);
                     $i = 0;
-                    while(($record = $result -> fetch_assoc()) && ($i < 50)){
+                    while(($record = $result -> fetch_assoc()) && ($i < 15)){
                         echo '<tr class="item">';
                         echo '<td>' . $record['nickname'] . '</td>';
                         echo '<td>' . $record['datewhen'] . '</td>';
@@ -49,31 +49,11 @@
                         echo '<td>' . $record['wpm'] . '</td>';
                         echo '<td>' . $record['score'] . '</td>';
                         echo '</tr>';
+                        $i++;
                     }
+                    $connection -> close();
                 ?> 
             </table>
-            <!-- <div class="item headers">
-                <h4>Name: </h4>
-                <h4>Data: </h4>
-                <h4>Acc: </h4>
-                <h4>Wpm: </h4>
-                <h4>Wynik: </h4>
-            </div>
-        //    <?php
-        //        $query = "SELECT * FROM scores ORDER BY score DESC";
-        //        $result = $connection -> query($query);
-        //        $i = 0;
-        //        while(($record = $result -> fetch_assoc()) && ($i < 50)){
-        //            echo '<div class="item">';
-        //            echo '<div>' . $record['login'] . '</div>';
-        //            echo '<div>' . $record['datewhen'] . '</div>';
-        //            echo '<div>' . $record['acc'] . '</div>';
-        //            echo '<div>' . $record['wpm'] . '</div>';
-        //            echo '<div>' . $record['score'] . '</div>';
-        //            echo '</div>';
-        //        }
-        //        
-        //     ?> -->
         </div>
     </main>
     <footer>

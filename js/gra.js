@@ -8,6 +8,8 @@ const wpm = document.querySelector('.gameStats .wpm span');
 const acc = document.querySelector('.gameStats .acc span');
 const scoreSpan = document.querySelector('.gameStats .score span');
 const scoreDiv = document.querySelector('.gameStats .score');
+const tryAgainBtn = document.querySelector('.game .tryAgain');
+const saveGameBtn = document.querySelector('.game .saveGame');
 let currentLetter = 0;
 let mistakes = 0;
 let currentTime = 0;
@@ -30,6 +32,7 @@ function game(){
     quoteLength = 0;
     gameEnded = false;
     tryAgainBtn.style.display = "none";
+    saveGameBtn.style.display = "none";
     scoreDiv.style.display = "none";
     inputText.value = "";
     getRandomQuote();
@@ -101,6 +104,7 @@ function checkLetter(){
     }
     if (gameEnded){
         tryAgainBtn.style.display = "block";
+        saveGameBtn.style.display = "block";
         scoreDiv.style.display = "flex";
         scoreSpan.innerHTML = score();
 
@@ -140,10 +144,14 @@ function score(){
     return Math.round((accuracy()*countWpm()*100)*100) / 100;
 }
 
-const tryAgainBtn = document.querySelector('.game .tryAgain');
+
 
 
 $('.tryAgain').on("click", function(){
+    game();
+})
+
+$('.saveGame').on("click", function(){
     $.ajax({
         url: "update_score.php",
         method: "POST",
@@ -151,6 +159,6 @@ $('.tryAgain').on("click", function(){
     }).done(function(res){
         console.log(res);
     });
-    game();
+    saveGameBtn.style.display = "none";
 })
 

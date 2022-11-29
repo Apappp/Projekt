@@ -7,4 +7,5 @@
     $wpm = $_POST['wpm'];
     $query = "INSERT INTO scores VALUES (NULL, '$score', '$login', '$datewhen', '$acc', '$wpm');";
     $connection -> query($query);
+    $connection -> close();
 ?>
