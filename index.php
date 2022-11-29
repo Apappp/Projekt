@@ -44,7 +44,7 @@
             <input type="submit" value="Zaloguj się" name="loginbtn">
         </form>
         <div class="login-card-footer">
-            Nie masz konta? <a href="rejestracja.php">Utwórz konto</a>
+            Nie masz konta? <a href="register.php">Utwórz konto</a>
         </div>
     </div>
     
