@@ -22,7 +22,7 @@
         </div>
         <ul class="menu">
             <li><a href="homepage.php">Graj!</a></li>
-            <li><a href="">Rankingi</a></li>
+            <li><a href="scores.php">Wyniki</a></li>
             <li><a href="logoff.php">Wyloguj</a></li>
             <li><a href="profile.php">Twój profil</a></li>
         </ul>
