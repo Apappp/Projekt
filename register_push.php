@@ -59,6 +59,7 @@
 
         if($result -> num_rows > 0){
             $_SESSION['login_exists'] = "Login już istnieje";
+            header('Location: register.php');
         } 
         else {
             $query = "SELECT email FROM users WHERE email='$email'";
@@ -66,6 +67,7 @@
 
             if($result -> num_rows > 0){
                 $_SESSION['email_exists'] = "E-mail już istnieje";
+                header('Location: register.php');
             }
             else {
                 $pass1 = password_hash($pass1, PASSWORD_DEFAULT);

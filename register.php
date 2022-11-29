@@ -18,7 +18,7 @@
     <div class="register-card">
         
         <form action="register_push.php" class="register-card-form" method="post">
-            <h2 class="register-header"><a href="login.php" class="back">
+            <h2 class="register-header"><a href="index.php" class="back">
             <i class="fa-solid fa-arrow-left-long"></i>
         </a>Rejestracja</h2>    
             <div class="form-item">

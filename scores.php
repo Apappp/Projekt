@@ -45,7 +45,7 @@
                         echo '<tr class="item">';
                         echo '<td>' . $record['nickname'] . '</td>';
                         echo '<td>' . $record['datewhen'] . '</td>';
-                        echo '<td>' . $record['acc'] . '</td>';
+                        echo '<td>' . $record['acc'] . '%</td>';
                         echo '<td>' . $record['wpm'] . '</td>';
                         echo '<td>' . $record['score'] . '</td>';
                         echo '</tr>';
