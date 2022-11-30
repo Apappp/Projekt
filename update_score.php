@@ -1,4 +1,8 @@
 <?php
+    if($_POST['sess'] != "access"){
+        header('Location: homepage.php');
+        exit;
+    }
     require_once('database/database_connection.php');
     $score = $_POST['score'];
     $login = $_SESSION['user'];

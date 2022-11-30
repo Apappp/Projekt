@@ -155,7 +155,7 @@ $('.saveGame').on("click", function(){
     $.ajax({
         url: "update_score.php",
         method: "POST",
-        data: {score: score(), wpm: Math.round(countWpm()*100)/100, acc: Math.round(accuracy()*100)/100}
+        data: {score: score(), wpm: Math.round(countWpm()*100)/100, acc: Math.round(accuracy()*100)/100, sess: "access"}
     }).done(function(res){
         console.log(res);
     });
