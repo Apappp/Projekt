@@ -6,6 +6,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Profile</title>
     <link rel="stylesheet" href="css/main.css">
+    <script src="jquery-3.6.1.js"></script>
+    <script src="https://kit.fontawesome.com/64c0f9e8f9.js" crossorigin="anonymous"></script>
 </head>
 <body>
     <header>
@@ -41,9 +43,14 @@
                     <span>Wiek: </span>
                 </div>
                 <div class="content">
-                    <span><h2>
-                        <?php echo $cells[2] ?>
-                    </h2></span>
+                    <div class="nickname">
+                        <h2>
+                            <?php echo $cells[2] ?>
+                        </h2>
+                        <input type="text" class="nicknameInput">
+                        <i class="fa-solid fa-floppy-disk"></i>
+                        <script src="js/save_nickname.js"></script>
+                    </div>
                     <span>
                         <?php echo $cells[1] ?>
                     </span>
@@ -55,7 +62,8 @@
                     </span>
                 </div>
             </div>
-            <div class="rest"></div>
+            <div class="rest">
+            </div>
         </div>
     </main>
     <footer>

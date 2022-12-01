@@ -249,6 +249,21 @@ header .menu a:hover {
     align-items: flex-start;
 }
 
+.profile .profileBox .data .content .nickname{
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+/* .profile .profileBox .data h2 {
+    margin-bottom: 10px;
+} */
+
+.profile .profileBox .data .content .nickname i, .nicknameInput {
+    display: none;
+    margin-bottom: 10px;
+}
+
 .profile .profileBox .rest {
     height: 20%;
 }
